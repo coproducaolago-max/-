@@ -10,8 +10,24 @@ import {
   featuredProperties,
   mostWantedProperties,
   newestProperties,
+  properties as allProperties,
 } from "@/data/properties";
 import praiaBg from "@/assets/praia-ubatuba-bg.jpg";
+
+// Mapeamento dos cards de Lançamentos para IDs reais do banco de dados
+const lancamentoPropertyIds: Record<string, number> = {
+  "residencial-lazaro-premium": 107230,
+  "torre-camburi-azul": 107237,
+  "eden-toninhas-praia": 107234,
+};
+
+const getLancamentoPath = (fakeId: string): string => {
+  const realId = lancamentoPropertyIds[fakeId];
+  if (!realId) return "/#imoveis";
+  const found = allProperties.find((p) => p.id === realId);
+  return found ? buildPropertyPath(found) : "/#imoveis";
+};
+
 
 const ScrollControls = ({
   containerRef,
@@ -308,7 +324,7 @@ export const NovosSection = () => {
                 boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
               }}
             >
-              <Link to={`/imovel/${prop.id}`} className="block h-full">
+              <Link to={getLancamentoPath(prop.id)} className="block h-full">
                 <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
                   <img
                     src={prop.image}
