@@ -15,6 +15,9 @@ const AnimatedRoutes = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Rola para o topo sempre que a rota mudar
+    window.scrollTo({ top: 0, behavior: "instant" });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
