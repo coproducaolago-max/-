@@ -390,7 +390,7 @@ export const NovosSection = () => {
         {/* CTA */}
         <div className="mt-10">
           <Link
-            to="/imoveis"
+            to="/#imoveis"
             className="inline-flex items-center gap-2 px-8 h-11 rounded font-label text-[0.72rem] tracking-[1px] transition-all duration-300 hover:bg-[#1B3A52] hover:text-white"
             style={{ border: "1px solid #1B3A52", color: "#1B3A52" }}
           >
