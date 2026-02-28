@@ -6,9 +6,25 @@ import imgVilla from "../assets/prop-villa-horizonte.png";
 import imgResidencia from "../assets/prop-residencia-oceano.png";
 import imgMansao from "../assets/prop-mansao-mare.png";
 import imgPalacio from "../assets/prop-palacio-ondas.png";
+import { buildPropertyPath, properties as propertyData } from "@/data/properties";
 
 const GOLD = "#C5A059";
 const GOLD_DARK = "#A68547";
+
+// Mapeamento dos cards visuais para os IDs reais do banco de dados
+const realPropertyIds: Record<string, number> = {
+  "lazaro-ubatuba": 107230,
+  "itamambuca-ubatuba": 107231,
+  "saco-da-ribeira-ubatuba": 107237,
+  "praia-grande-ubatuba": 107233,
+};
+
+const getPropertyPath = (fakeId: string): string => {
+  const realId = realPropertyIds[fakeId];
+  if (!realId) return "/#imoveis";
+  const found = propertyData.find((p) => p.id === realId);
+  return found ? buildPropertyPath(found) : "/#imoveis";
+};
 
 const properties = [
   {
@@ -122,7 +138,7 @@ const PropertyCard = ({
           {prop.preco}
         </span>
         <Link
-          to={`/imovel/${prop.id}`}
+          to={getPropertyPath(prop.id)}
           className="inline-flex items-center px-4 h-8 rounded font-label text-[0.62rem] tracking-[0.8px] transition-all duration-300 hover:bg-[#C5A059] hover:text-white"
           style={{ border: `1px solid ${GOLD}`, color: GOLD_DARK }}
         >
