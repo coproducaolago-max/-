@@ -8,7 +8,6 @@ import {
     MapPin,
     ArrowRight,
     Instagram,
-    Linkedin,
     MessageCircle,
     Phone,
     Mail,
@@ -487,7 +486,7 @@ const ContactSection = () => {
         const msg = encodeURIComponent(
             `Olá! Me chamo ${form.nome} e tenho interesse na Villa Lázaro.\n\nEmail: ${form.email}\nTelefone: ${form.telefone}\n\n${form.mensagem}`,
         );
-        window.open(`https://wa.me/5548996931776?text=${msg}`, "_blank");
+        window.open(`https://wa.me/5511922190212?text=${msg}`, "_blank");
     };
 
     const inputStyle: React.CSSProperties = {
@@ -679,22 +678,22 @@ const ContactSection = () => {
                 <FadeIn delay={0.3}>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
                         <a
-                            href="https://wa.me/5548996931776"
+                            href="https://wa.me/5511922190212"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 font-body text-[0.85rem] transition-colors"
                             style={{ color: "rgba(255,255,255,0.50)" }}
                         >
                             <Phone size={14} style={{ color: GOLD }} />
-                            (48) 99693-1776
+                            (11) 92219-0212
                         </a>
                         <a
-                            href="mailto:contato@vivabeiramar.com"
+                            href="mailto:vivabeiramar.com@gmail.com"
                             className="flex items-center gap-2 font-body text-[0.85rem]"
                             style={{ color: "rgba(255,255,255,0.50)" }}
                         >
                             <Mail size={14} style={{ color: GOLD }} />
-                            contato@vivabeiramar.com
+                            vivabeiramar.com@gmail.com
                         </a>
                     </div>
                 </FadeIn>
@@ -707,9 +706,8 @@ const ContactSection = () => {
    6. LANDING FOOTER
    ════════════════════════════════════════════════════════════════════ */
 const socials = [
-    { icon: Instagram, href: "https://instagram.com/vivabeiramar", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: MessageCircle, href: "https://wa.me/5548996931776", label: "WhatsApp" },
+    { icon: Instagram, href: "https://www.instagram.com/viva.beiramar", label: "Instagram" },
+    { icon: MessageCircle, href: "https://wa.me/5511922190212", label: "WhatsApp" },
 ];
 
 const LandingFooter = () => (
@@ -773,7 +771,7 @@ const LandingFooter = () => (
                         className="font-label text-[0.65rem] font-semibold uppercase tracking-[1.5px]"
                         style={{ color: GOLD_DARK }}
                     >
-                        CRECI 123456-F
+                        CRECI 221107
                     </p>
                 </div>
             </div>

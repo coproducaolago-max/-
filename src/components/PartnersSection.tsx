@@ -16,7 +16,7 @@ const PartnersSection = () => (
   <section
     style={{
       padding: "90px 0 100px",
-      background: "linear-gradient(160deg, #0D1E2E 0%, #12263A 50%, #0A1A28 100%)",
+      background: "linear-gradient(160deg, #EDE0C4 0%, #F5ECD7 50%, #E8D5B5 100%)",
       position: "relative",
       overflow: "hidden",
     }}
@@ -58,7 +58,7 @@ const PartnersSection = () => (
         </h2>
         <p
           className="font-body font-light mt-3 mx-auto"
-          style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.9rem", maxWidth: "440px" }}
+          style={{ color: "rgba(44,24,16,0.55)", fontSize: "0.9rem", maxWidth: "440px" }}
         >
           Instituições financeiras com histórico sólido para apoiar operações de compra e investimento.
         </p>
@@ -90,15 +90,15 @@ const PartnersSection = () => (
               className="font-label font-bold tracking-[2.5px] transition-all duration-300"
               style={{
                 fontSize: "clamp(0.85rem, 1.4vw, 1.1rem)",
-                color: "rgba(255,255,255,0.35)",
+                color: "rgba(44,24,16,0.45)",
                 letterSpacing: "2.5px",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)";
+                (e.currentTarget as HTMLElement).style.color = "rgba(44,24,16,0.85)";
                 (e.currentTarget as HTMLElement).style.textShadow = `0 0 20px rgba(197,160,89,0.25)`;
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.35)";
+                (e.currentTarget as HTMLElement).style.color = "rgba(44,24,16,0.45)";
                 (e.currentTarget as HTMLElement).style.textShadow = "none";
               }}
             >
@@ -106,7 +106,7 @@ const PartnersSection = () => (
             </span>
             <span
               className="font-body font-light uppercase tracking-[1px]"
-              style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.20)" }}
+              style={{ fontSize: "0.6rem", color: "rgba(44,24,16,0.65)" }}
             >
               {partner.label}
             </span>

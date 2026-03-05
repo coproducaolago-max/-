@@ -11,9 +11,9 @@ const stats = [
 ];
 
 const StatsSection = () => (
-  <section style={{ padding: "80px 0", background: "#0B1E2D" }}>
+  <section id="servicos" style={{ padding: "80px 0", background: "#EDE0C4" }}>
     <div className="vb-container">
-      <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#1A3347]">
+      <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[rgba(197,160,89,0.2)]">
         {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -37,7 +37,7 @@ const StatsSection = () => (
             </p>
             <p
               className="font-body font-light uppercase tracking-[1.8px] mt-3"
-              style={{ color: "rgba(255,255,255,0.38)", fontSize: "0.7rem" }}
+              style={{ color: "rgba(44,24,16,0.50)", fontSize: "0.7rem" }}
             >
               {stat.label}
             </p>

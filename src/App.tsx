@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PropertyDetails from "./pages/PropertyDetails";
 import PropertyLanding from "./pages/PropertyLanding";
 import NotFound from "./pages/NotFound";
+import Imoveis from "./pages/Imoveis";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/villa-lazaro" element={<PropertyLanding />} />
+      <Route path="/imoveis" element={<Imoveis />} />
       <Route path="/imovel/:propertySlug" element={<PropertyDetails />} />
       <Route path="/imoveis/:propertySlug" element={<PropertyDetails />} />
       <Route path="*" element={<NotFound />} />

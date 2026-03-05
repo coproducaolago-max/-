@@ -1,12 +1,35 @@
-import imovel1 from "@/assets/imovel1.jpg";
-import imovel2 from "@/assets/imovel2.jpg";
-import imovel3 from "@/assets/imovel3.jpg";
-import imovel4 from "@/assets/imovel4.jpg";
-import imovel5 from "@/assets/imovel5.jpg";
-import imovel6 from "@/assets/imovel6.jpg";
-import imovel7 from "@/assets/imovel7.jpg";
-import imovel8 from "@/assets/imovel8.jpg";
 import corretorImage from "@/assets/corretor.jpg";
+import sienaFachada from "@/assets/siena-fachada.png";
+import sienaFachadaLateral from "@/assets/siena-fachada-lateral.png";
+import sienaGourmet from "@/assets/siena-gourmet.png";
+import sienaLiving from "@/assets/siena-living.png";
+import sienaPiscina from "@/assets/siena-piscina.png";
+import vertFachadaSuite from "@/assets/vert-fachada-suite.png";
+import vertFachadaEsquina from "@/assets/vert-fachada-esquina.png";
+import vertFachadaStudio from "@/assets/vert-fachada-studio.png";
+import vertPlantaSuite from "@/assets/vert-planta-suite.png";
+import vertPlantaStudio from "@/assets/vert-planta-studio.png";
+import vertLazer from "@/assets/vert-lazer.png";
+import vertFachadaStudioRj from "@/assets/vert-fachada-studio-rj.png";
+import vertStudioInterior from "@/assets/vert-studio-interior.png";
+import vertFachadaSuiteNc from "@/assets/vert-fachada-suite-nc.png";
+import vertSuiteSala from "@/assets/vert-suite-sala.png";
+import vertRooftopPiscina from "@/assets/vert-rooftop-piscina.png";
+import vertVarandaGourmet from "@/assets/vert-varanda-gourmet.png";
+import vertRooftopQuiosque from "@/assets/vert-rooftop-quiosque.png";
+import amalfiFachada from "@/assets/amalfi-fachada.png";
+import amalfiQuarto from "@/assets/amalfi-quarto.png";
+import amalfiVaranda from "@/assets/amalfi-varanda.png";
+import amalfiAcademia from "@/assets/amalfi-academia.png";
+import bellagioFachada from "@/assets/bellagio-fachada.png";
+import bellagioFachadaFrente from "@/assets/bellagio-fachada-frente.png";
+import bellagioFachadaLateral from "@/assets/bellagio-fachada-lateral.png";
+import bellagioPiscina from "@/assets/bellagio-piscina.png";
+import bellagioLiving from "@/assets/bellagio-living.png";
+import bellagioQuarto from "@/assets/bellagio-quarto.png";
+import bellagioVaranda from "@/assets/bellagio-varanda.png";
+import bellagioAcademia from "@/assets/bellagio-academia.png";
+import bellagioGourmet from "@/assets/bellagio-gourmet.png";
 
 export type PropertyTagVariant = "destaque" | "lancamento" | "aluguel";
 
@@ -34,6 +57,7 @@ export interface PropertyRecord {
   features: string[];
   observations?: string;
   tags?: PropertyTag[];
+  virtualTourUrl?: string;
 }
 
 const stateNameByCode: Record<string, string> = {
@@ -50,351 +74,173 @@ const normalizeSlug = (value: string): string =>
 
 export const properties: PropertyRecord[] = [
   {
-    id: 107230,
-    image: imovel3,
-    type: "Casa",
-    title: "Lazaro, Ubatuba - SP",
-    condo: "Condominio Praia do Lazaro",
-    neighborhood: "Lazaro",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "280 m2",
-    bedrooms: "4 Quartos",
-    bathrooms: "3 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 1.850.000",
-    tags: [{ label: "Lancamento", variant: "lancamento" }],
-    description:
-      "Casa em condominio fechado a poucos passos da Praia do Lazaro, com ampla area verde e acabamento premium.",
-    features: [
-      "Condominio fechado",
-      "A 200m da Praia do Lazaro",
-      "Piscina privativa",
-      "Area gourmet",
-      "Varanda com vista para o mar",
-    ],
-    observations:
-      "Imovel em fase final de acabamento. Visitas com agendamento previo.",
-  },
-  {
-    id: 107231,
-    image: imovel5,
-    type: "Lote/Terreno",
-    title: "Itamambuca, Ubatuba - SP",
-    condo: "Condominio Itamambuca",
-    neighborhood: "Itamambuca",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "450 m2",
-    priceLabel: "Venda",
-    price: "R$ 680.000",
-    tags: [{ label: "Destaque", variant: "destaque" }],
-    description:
-      "Terreno em area nobre de Itamambuca, ideal para construcao de residencia de alto padrao com vista para a mata atlantica.",
-    features: [
-      "Terreno plano",
-      "Condominio com seguranca 24h",
-      "Rua pavimentada",
-      "Infraestrutura pronta",
-      "Proximo a Praia de Itamambuca",
-    ],
-    observations:
-      "Condominio com regras de construcao e taxa de manutencao mensal.",
-  },
-  {
-    id: 107232,
-    image: imovel8,
+    id: 107243,
+    image: vertFachadaSuite,
     type: "Apartamento",
-    title: "Itagua, Ubatuba - SP",
-    neighborhood: "Itagua",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "85 m2",
-    bedrooms: "2 Quartos",
-    bathrooms: "2 Banheiros",
-    parking: "1 vaga",
-    priceLabel: "Venda",
-    price: "R$ 520.000",
-    description:
-      "Apartamento moderno no coracao de Ubatuba, proximo a praia de Itagua, comercio e servicos.",
-    features: [
-      "2 dormitorios com suite",
-      "Cozinha americana",
-      "Proximo a Praia do Itagua",
-      "Condominio com piscina",
-      "Planta otimizada",
-    ],
-    observations:
-      "Excelente opcao para moradia ou investimento com documentacao regularizada.",
-  },
-  {
-    id: 107233,
-    image: imovel7,
-    type: "Casa",
-    title: "Praia Grande, Ubatuba - SP",
-    neighborhood: "Praia Grande",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "350 m2",
-    bedrooms: "5 Quartos",
-    bathrooms: "4 Banheiros",
-    parking: "3 vagas",
-    priceLabel: "Venda",
-    price: "R$ 2.800.000",
-    tags: [{ label: "Destaque", variant: "destaque" }],
-    description:
-      "Residencia de alto padrao na Praia Grande com vista panoramica para o mar e acabamentos nobres.",
-    features: [
-      "5 suites",
-      "Piscina com deck",
-      "Churrasqueira gourmet",
-      "Vista panoramica para o mar",
-      "Garagem coberta para 3 carros",
-    ],
-    observations:
-      "Imovel exclusivo em uma das praias mais valorizadas de Ubatuba.",
-  },
-  {
-    id: 107234,
-    image: imovel1,
-    type: "Casa",
-    title: "Toninhas, Ubatuba - SP",
-    neighborhood: "Toninhas",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "220 m2",
-    bedrooms: "3 Quartos",
-    bathrooms: "3 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 1.500.000",
-    description:
-      "Casa moderna em bairro nobre de Ubatuba, a poucos minutos da Praia das Toninhas, com projeto contemporaneo e ambientes integrados.",
-    features: [
-      "Suite principal com closet",
-      "Area gourmet completa",
-      "Garagem para 2 carros",
-      "Quintal privativo com jardim",
-      "Projeto arquitetonico assinado",
-    ],
-    observations:
-      "Aceita financiamento, analisa proposta e permuta parcial.",
-  },
-  {
-    id: 107235,
-    image: imovel4,
-    type: "Apartamento",
-    title: "Enseada, Ubatuba - SP",
-    neighborhood: "Enseada",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "130 m2",
-    bedrooms: "3 Quartos",
-    bathrooms: "2 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 950.000",
-    description:
-      "Apartamento amplo com vista para o mar na Enseada, alto padrao de acabamento e localizacao privilegiada.",
-    features: [
-      "Planta ampla com sacada",
-      "Acabamentos de alto padrao",
-      "Vista parcial para o mar",
-      "Condominio com piscina e academia",
-      "Regiao valorizada",
-    ],
-    observations:
-      "Condominio com lazer completo e controle de acesso 24 horas.",
-  },
-  {
-    id: 107236,
-    image: imovel6,
-    type: "Casa",
-    title: "Maranduba, Ubatuba - SP",
-    condo: "Condominio Costa Verde",
-    neighborhood: "Maranduba",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "180 m2",
-    bedrooms: "3 Quartos",
-    bathrooms: "2 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 1.200.000",
-    description:
-      "Casa em condominio fechado a 300m da Praia de Maranduba, com excelente terreno e acabamento refinado.",
-    features: [
-      "3 dormitorios com suite",
-      "2 vagas cobertas",
-      "Terreno amplo com jardim",
-      "Rua tranquila e segura",
-      "Churrasqueira e piscina",
-    ],
-    observations:
-      "Imovel com manutencao em dia e escritura disponivel para consulta.",
-  },
-  {
-    id: 107237,
-    image: imovel2,
-    type: "Casa",
-    title: "Saco da Ribeira, Ubatuba - SP",
-    neighborhood: "Saco da Ribeira",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "400 m2",
-    bedrooms: "4 Quartos",
-    bathrooms: "4 Banheiros",
-    parking: "3 vagas",
-    priceLabel: "Venda",
-    price: "R$ 3.200.000",
-    description:
-      "Casa de luxo no Saco da Ribeira com acesso exclusivo a marina e vista deslumbrante para a baia de Ubatuba.",
-    features: [
-      "Espacos integrados com vista para o mar",
-      "Deck privativo com acesso a marina",
-      "Piscina com borda infinita",
-      "Arquitetura moderna e sustentavel",
-      "Excelente liquidez",
-    ],
-    observations:
-      "Projeto assinado com integracao de ambientes sociais e area externa com vista permanente.",
-  },
-  {
-    id: 107238,
-    image: imovel8,
-    type: "Apartamento",
-    title: "Perequê-Açu, Ubatuba - SP",
+    title: "Vert by Voga – Studio | Perequê-Açu, Ubatuba - SP",
+    condo: "Vert by Voga",
     neighborhood: "Perequê-Açu",
     city: "Ubatuba",
     stateCode: "SP",
-    area: "75 m2",
-    bedrooms: "2 Quartos",
-    bathrooms: "2 Banheiros",
-    parking: "1 vaga",
-    priceLabel: "Venda",
-    price: "R$ 450.000",
-    description:
-      "Apartamento no Perequê-Açu, bairro residencial proximo a praia e com excelente infraestrutura.",
-    features: [
-      "Bairro residencial tranquilo",
-      "Planta funcional",
-      "Proximo a praia e comercio",
-      "Boa ventilacao e iluminacao",
-      "Excelente para moradia fixa",
-    ],
-    observations:
-      "Regiao com oferta de servicos e acesso facilitado ao centro de Ubatuba.",
-  },
-  {
-    id: 107239,
-    image: imovel2,
-    type: "Casa",
-    title: "Lagoinha, Ubatuba - SP",
-    neighborhood: "Lagoinha",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "320 m2",
-    bedrooms: "4 Quartos",
-    bathrooms: "3 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 2.500.000",
-    description:
-      "Casa com vista privilegiada para a Praia da Lagoinha, acabamento refinado em uma das praias mais exclusivas de Ubatuba.",
-    features: [
-      "Vista panoramica para o mar",
-      "2 vagas de garagem",
-      "Acabamento premium",
-      "Piscina com cascata",
-      "Localizacao exclusiva",
-    ],
-    observations:
-      "Unidade com acabamento de alto padrao e vista aberta permanente para o mar.",
-  },
-  {
-    id: 107240,
-    image: imovel6,
-    type: "Apartamento",
-    title: "Centro, Ubatuba - SP",
-    neighborhood: "Centro",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "60 m2",
-    bedrooms: "1 Quarto",
+    area: "36 m2",
+    bedrooms: "Studio",
     bathrooms: "1 Banheiro",
     parking: "1 vaga",
-    priceLabel: "Venda",
-    price: "R$ 380.000",
+    priceLabel: "A partir de",
+    price: "R$ 271.500",
+    tags: [{ label: "Lançamento", variant: "lancamento" }],
     description:
-      "Studio moderno no centro de Ubatuba, ideal para quem busca praticidade e alta liquidez para investimento.",
+      "Studio moderno no empreendimento Vert by Voga, localizado a apenas 380m da Praia do Perequê-Açú em Ubatuba. Unidade do 3° andar com frente para a Rua Rio de Janeiro. Entrada facilitada em até 6x sem juros. Lazer completo com rooftop, piscina, SPA e muito mais.",
     features: [
-      "Studio compacto e moderno",
-      "Condominio com lazer",
-      "Alta demanda para temporada",
-      "Localizacao central privilegiada",
-      "A 5 minutos da praia",
+      "380m da Praia do Perequê-Açú",
+      "800m do Mercado de Peixe",
+      "1,8km da Roda Gigante – Ubatuba Mall",
+      "4km da Praia Grande",
+      "Piscina com Deck no Rooftop",
+      "Solarium e Quiosque no Rooftop",
+      "SPA com 2 hidros",
+      "Espaço Fitness",
+      "Mini Market e Coworking",
+      "Lavanderia compartilhada",
+      "Entrada em até 6x sem juros",
     ],
     observations:
-      "Ideal para investimento, com alta procura em locacao de temporada.",
+      "3° Andar, frente Rua Rio de Janeiro. Unidades de studio com 36,2 m². Projeto aprovado pela Voga Incorporadora.",
   },
   {
-    id: 107241,
-    image: imovel7,
-    type: "Casa",
-    title: "Fortaleza, Ubatuba - SP",
-    neighborhood: "Fortaleza",
-    city: "Ubatuba",
-    stateCode: "SP",
-    area: "250 m2",
-    bedrooms: "3 Quartos",
-    bathrooms: "3 Banheiros",
-    parking: "2 vagas",
-    priceLabel: "Venda",
-    price: "R$ 1.800.000",
-    description:
-      "Casa na Praia da Fortaleza com vista para as ilhas, projeto moderno e espaco generoso.",
-    features: [
-      "3 suites com varanda",
-      "2 vagas de garagem",
-      "Vista para as ilhas",
-      "Proximo a trilhas e praias desertas",
-      "Otima para moradia ou temporada",
-    ],
-    observations:
-      "Praia da Fortaleza e uma das mais valorizadas de Ubatuba com aguas calmas.",
-  },
-  {
-    id: 107242,
-    image: imovel8,
+    id: 107244,
+    image: vertFachadaEsquina,
     type: "Apartamento",
-    title: "Tenorio, Ubatuba - SP",
-    neighborhood: "Tenorio",
+    title: "Vert by Voga – 1 Suíte | Perequê-Açu, Ubatuba - SP",
+    condo: "Vert by Voga",
+    neighborhood: "Perequê-Açu",
     city: "Ubatuba",
     stateCode: "SP",
-    area: "95 m2",
+    area: "38 m2",
+    bedrooms: "1 Suíte",
+    bathrooms: "1 Banheiro",
+    parking: "1 vaga",
+    priceLabel: "A partir de",
+    price: "R$ 291.750",
+    tags: [{ label: "Lançamento", variant: "lancamento" }],
+    description:
+      "Apartamento de 1 suíte no empreendimento Vert by Voga, a 380m da Praia do Perequê-Açú. Unidade do 3° andar com frente para a Rua Nicolau Copérnico. Condomínio com rooftop completo, piscina, SPA e entrada facilitada em até 6x sem juros.",
+    features: [
+      "380m da Praia do Perequê-Açú",
+      "800m do Mercado de Peixe",
+      "1,8km da Roda Gigante – Ubatuba Mall",
+      "4km da Praia Grande",
+      "Piscina com Deck no Rooftop",
+      "Solarium e Quiosque no Rooftop",
+      "SPA com 2 hidros",
+      "Espaço Fitness",
+      "Mini Market e Coworking",
+      "Lavanderia compartilhada",
+      "Entrada em até 6x sem juros",
+    ],
+    observations:
+      "3° Andar, frente Rua Nicolau Copérnico. Unidades de 1 suíte com 38,9 m². Projeto aprovado pela Voga Incorporadora.",
+  },
+  {
+    id: 107245,
+    image: amalfiFachada,
+    type: "Apartamento",
+    title: "Amalfi Studios | Ubatuba - SP",
+    condo: "Amalfi Studios – Siete Construtora",
+    neighborhood: "Ubatuba",
+    city: "Ubatuba",
+    stateCode: "SP",
+    area: "Studio",
+    bedrooms: "Studio",
+    bathrooms: "1 Banheiro",
+    parking: "1 vaga",
+    priceLabel: "Consulte-nos",
+    price: "Sob Consulta",
+    tags: [{ label: "Lançamento", variant: "lancamento" }],
+    description:
+      "Amalfi Studios é um empreendimento moderno da Siete Construtora em Ubatuba, com acabamento sofisticado e lazer completo. Studios projetados para morar com conforto ou investir com alta rentabilidade de temporada.",
+    features: [
+      "Academia completa",
+      "Varanda integrada ao living",
+      "Localização privilegiada em Ubatuba",
+      "Projeto Siete Construtora",
+      "Unidades compactas e funcionais",
+      "Ideal para investimento em temporada",
+    ],
+    observations:
+      "Valores e metragens sob consulta. Entre em contato para conhecer as opções disponíveis.",
+  },
+  {
+    id: 107246,
+    image: bellagioFachada,
+    type: "Apartamento",
+    title: "Bellagio Residenziale | Centro, Caraguatatuba - SP",
+    condo: "Bellagio Residenziale – A3 Construtora",
+    neighborhood: "Centro",
+    city: "Caraguatatuba",
+    stateCode: "SP",
+    area: "48 a 139 m²",
+    bedrooms: "1 a 3 Quartos",
+    bathrooms: "1 a 3 Banheiros",
+    parking: "1 vaga",
+    priceLabel: "A partir de",
+    price: "R$ 331.690",
+    tags: [{ label: "Lançamento", variant: "lancamento" }],
+    description:
+      "O Bellagio Residenziale é um empreendimento de alto padrão da A3 Construtora, localizado de frente para o mar no coração de Caraguatatuba. Com 4 torres residenciais e 12 lojas, oferece apartamentos de 1, 2 e 3 dormitórios — todos com suíte, ventilação natural e varanda gourmet com churrasqueira a carvão. Localizado na Av. Dr. Arthur da Costa Filho, 1555.",
+    features: [
+      "4 Torres Residenciais + 12 Lojas",
+      "1, 2 ou 3 dormitórios com suíte",
+      "Varanda gourmet com churrasqueira a carvão",
+      "Piscina com borda infinita",
+      "Sauna e academia interna e externa",
+      "Salão de festas e brinquedoteca",
+      "Armário náutico exclusivo por cota",
+      "Infraestrutura para ar condicionado",
+      "Aquecimento a gás",
+      "De frente para o mar",
+    ],
+    observations:
+      "Empreendimento em fase de lançamento. Modelo de investimento via SCP (Sociedade em Conta de Participação). Preço de custo competitivo entre R$ 4.400 e R$ 5.000/m². Unidades de 48 a 139 m² com opções de planta duplex.",
+    virtualTourUrl: "https://portal.iteleport.com.br/tour/a3-bellagio/fullscreen",
+  },
+  {
+    id: 107247,
+    image: sienaFachada,
+    type: "Apartamento",
+    title: "Siena Residencial | Itaguá, Ubatuba - SP",
+    condo: "Siena Residencial – A3 Construtora",
+    neighborhood: "Itaguá",
+    city: "Ubatuba",
+    stateCode: "SP",
+    area: "64 a 77 m²",
     bedrooms: "2 Quartos",
     bathrooms: "2 Banheiros",
     parking: "1 vaga",
-    priceLabel: "Venda",
-    price: "R$ 620.000",
+    priceLabel: "A partir de",
+    price: "R$ 541.783",
+    tags: [{ label: "Lançamento", variant: "lancamento" }],
     description:
-      "Apartamento com vista para a Praia do Tenorio, em condominio com infraestrutura completa.",
+      "O Siena Residencial é um lançamento exclusivo da A3 Construtora no bairro Itaguá, em Ubatuba. Com apartamentos de 64 a 77 m², opções de 2 suítes ou 2 quartos sendo 1 suíte, e lazer completo no rooftop com piscina, academia e sauna. Portaria blindada e infraestrutura para veículos elétricos.",
     features: [
-      "2 dormitorios com suite",
-      "1 vaga de garagem",
-      "Condominio com piscina",
-      "Vista parcial para o mar",
-      "Proximo a restaurantes e comercio",
+      "Rooftop com piscina",
+      "Academia e Crossfit",
+      "Sauna e área de descanso",
+      "Espaço gourmet",
+      "Portaria blindada",
+      "Bicicletário",
+      "Infraestrutura para veículos elétricos",
+      "Opção com 2 suítes ou 1 suíte + 1 quarto",
+      "Localização privilegiada em Ubatuba",
     ],
     observations:
-      "Planta funcional, boa insolacao e proximidade com a praia.",
+      "Unidades de 64,16 m² a 76,99 m². Preço de entrada a partir de R$ 541.783 (Unidade 311, 64 m², 2 dorms/1 suíte, 1 vaga). Empreendimento A3 Construtora.",
   },
 ];
 
-export const featuredPropertyIds = [107231, 107232, 107230, 107233, 107234, 107235];
-export const mostWantedPropertyIds = [107230, 107231, 107236, 107237, 107234, 107238];
-export const newestPropertyIds = [107234, 107239, 107240, 107241, 107242, 107236];
+export const featuredPropertyIds = [107243, 107244, 107245, 107246, 107247];
+export const mostWantedPropertyIds = [107243, 107244, 107245, 107246, 107247];
+export const newestPropertyIds = [107247, 107246, 107243, 107244, 107245];
 
 const byId = new Map(properties.map((property) => [property.id, property]));
 
@@ -424,15 +270,32 @@ export const getPropertyFromRouteSlug = (routeSlug?: string): PropertyRecord | u
   return properties.find((property) => buildPropertySlug(property) === routeSlug);
 };
 
-const galleryPool = [imovel1, imovel2, imovel3, imovel4, imovel5, imovel6, imovel7, imovel8];
+
+
+const vertGalleryStudio = [
+  vertFachadaStudioRj,
+  vertStudioInterior,
+  vertRooftopPiscina,
+  vertPlantaStudio,
+  vertLazer,
+];
+
+const vertGallerySuite = [
+  vertFachadaSuiteNc,
+  vertSuiteSala,
+  vertVarandaGourmet,
+  vertRooftopQuiosque,
+  vertPlantaSuite,
+];
 
 export const getPropertyGallery = (property: PropertyRecord): string[] => {
-  const startIndex = property.id % galleryPool.length;
-  const rotated = galleryPool
-    .slice(startIndex)
-    .concat(galleryPool.slice(0, startIndex));
+  if (property.id === 107243) return vertGalleryStudio;
+  if (property.id === 107244) return vertGallerySuite;
+  if (property.id === 107245) return [amalfiFachada, amalfiQuarto, amalfiVaranda, amalfiAcademia];
+  if (property.id === 107246) return [bellagioFachadaFrente, bellagioFachadaLateral, bellagioPiscina, bellagioLiving, bellagioQuarto, bellagioVaranda, bellagioAcademia, bellagioGourmet];
+  if (property.id === 107247) return [sienaFachada, sienaFachadaLateral, sienaPiscina, sienaLiving, sienaGourmet];
 
-  return [property.image, ...rotated.filter((image) => image !== property.image)].slice(0, 5);
+  return [property.image];
 };
 
 export interface Property {
@@ -465,6 +328,7 @@ export interface Property {
   status?: string;
   developer?: string;
   deliveryDate?: string;
+  virtualTourUrl?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -490,9 +354,9 @@ export interface SimilarProperty {
 
 const parseNumberFromText = (value?: string): number => {
   if (!value) return 0;
-  const match = value.replace(/[^\d]/g, "");
+  const match = value.match(/\d+/);
   if (!match) return 0;
-  return Number(match);
+  return Number(match[0]);
 };
 
 const parsePrice = (value: string): number => {
@@ -522,12 +386,12 @@ const buildMapEmbedUrl = (property: PropertyRecord): string => {
 };
 
 export const defaultBroker: Broker = {
-  name: "Fernando Vieira",
+  name: "Ícaro Negri",
   photo: corretorImage,
-  creci: "CRECI 123456-F",
-  phone: "(48) 99693-1776",
-  whatsapp: "5548996931776",
-  email: "contato@vivabeiramar.com.br",
+  creci: "CRECI 221107",
+  phone: "(11) 92219-0212",
+  whatsapp: "5511922190212",
+  email: "vivabeiramar.com@gmail.com",
 };
 
 export const toPropertyDetailsModel = (property: PropertyRecord): Property => {
@@ -568,6 +432,7 @@ export const toPropertyDetailsModel = (property: PropertyRecord): Property => {
     status: mapVariantToStatus(tag?.variant),
     developer: property.condo,
     deliveryDate: tag?.variant === "lancamento" ? "Dez/2026" : undefined,
+    virtualTourUrl: property.virtualTourUrl,
     createdAt: new Date("2026-01-01"),
     updatedAt: new Date("2026-02-11"),
   };

@@ -139,19 +139,42 @@ const PropertyDetails = () => {
     }
   };
 
-  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Interesse no imovel ${property.id}`);
-    const body = encodeURIComponent(
-      [
-        `Nome: ${formState.name}`,
-        `Email: ${formState.email}`,
-        `Telefone: ${formState.phone}`,
-        "",
-        formState.message || defaultMessage,
-      ].join("\n"),
-    );
-    window.location.href = `mailto:${broker.email}?subject=${subject}&body=${body}`;
+    setFormStatus("sending");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/coproducaolago@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `🏠 Novo Interesse — ${property.title} (Ref: ${property.id})`,
+          "Imóvel": property.title,
+          "Referência": property.id,
+          "Preço": property.price,
+          "Localização": property.location?.address || "",
+          "Nome do Cliente": formState.name,
+          "E-mail": formState.email,
+          "Telefone / WhatsApp": formState.phone,
+          "Mensagem": formState.message || defaultMessage,
+          _template: "table",
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        setFormState({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   const whatsappText = encodeURIComponent(formState.message || defaultMessage);
@@ -368,10 +391,42 @@ const PropertyDetails = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn-submit">
-                    <Send />
-                    Enviar mensagem
-                  </button>
+                  {formStatus === "success" ? (
+                    <div style={{ textAlign: "center", padding: "16px 0" }}>
+                      <p style={{ color: "#16a34a", fontWeight: 600, fontSize: "0.95rem", marginBottom: "4px" }}>
+                        ✓ Mensagem enviada com sucesso!
+                      </p>
+                      <p style={{ color: "rgba(44,24,16,0.55)", fontSize: "0.8rem" }}>
+                        Entraremos em contato em breve.
+                      </p>
+                      <button
+                        type="button"
+                        className="btn-submit"
+                        style={{ marginTop: "12px", opacity: 0.85 }}
+                        onClick={() => {
+                          setFormStatus("idle");
+                          setFormState((c) => ({ ...c, message: defaultMessage }));
+                        }}
+                      >
+                        Enviar nova mensagem
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="btn-submit"
+                      disabled={formStatus === "sending"}
+                      style={{ opacity: formStatus === "sending" ? 0.7 : 1 }}
+                    >
+                      {formStatus === "sending" ? (
+                        <>⏳ Enviando...</>
+                      ) : formStatus === "error" ? (
+                        <>⚠️ Erro — Tentar novamente</>
+                      ) : (
+                        <><Send /> Enviar mensagem</>
+                      )}
+                    </button>
+                  )}
                 </form>
 
                 <div className="divider-or">ou</div>
@@ -421,6 +476,32 @@ const PropertyDetails = () => {
               >
                 <MapPin />
                 Ver no Google Maps
+              </a>
+            </section>
+          )}
+
+          {property.virtualTourUrl && (
+            <section className="map-section">
+              <header className="map-section-header">
+                <h2>🏙️ Tour Virtual 3D</h2>
+                <p>Explore o empreendimento em 360° diretamente pelo seu navegador</p>
+              </header>
+              <div className="map-container" style={{ position: "relative" }}>
+                <iframe
+                  title={`Tour Virtual 3D – ${property.title}`}
+                  src={property.virtualTourUrl}
+                  loading="lazy"
+                  allow="fullscreen; vr; xr-spatial-tracking"
+                  style={{ border: "none", width: "100%", height: "100%" }}
+                />
+              </div>
+              <a
+                href={property.virtualTourUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="map-link"
+              >
+                ↗ Abrir Tour em Tela Cheia
               </a>
             </section>
           )}

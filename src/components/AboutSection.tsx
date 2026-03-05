@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import corretorImg from "@/assets/corretor.jpg";
-import { Instagram, Linkedin, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 
 const GOLD = "#C5A059";
 const GOLD_DARK = "#A68547";
 
 const socialLinks = [
-  { icon: MessageCircle, href: "https://wa.me/5548999999999", label: "WhatsApp" },
-  { icon: Instagram, href: "https://instagram.com/vivabeiramar", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com/in/vivabeiramar", label: "LinkedIn" },
+  { icon: MessageCircle, href: "https://wa.me/5511922190212", label: "WhatsApp" },
+  { icon: Instagram, href: "https://www.instagram.com/viva.beiramar", label: "Instagram" },
 ];
 
 const AboutSection = () => (
@@ -32,7 +31,7 @@ const AboutSection = () => (
         <div className="relative order-first lg:order-last overflow-hidden" style={{ minHeight: "420px" }}>
           <img
             src={corretorImg}
-            alt="Corretor Viva Beiramar — Fernando Vieira"
+            alt="Corretor Viva Beiramar — Ícaro Negri"
             className="w-full h-full object-cover"
             style={{ minHeight: "420px" }}
           />
@@ -40,7 +39,7 @@ const AboutSection = () => (
             className="absolute bottom-6 left-6 px-4 py-2 rounded font-label text-[0.62rem] font-bold uppercase tracking-[1.4px] text-white"
             style={{ background: `linear-gradient(135deg, ${GOLD} 0%, ${GOLD_DARK} 100%)` }}
           >
-            CRECI 123456-F
+            CRECI 221107
           </div>
         </div>
 
@@ -54,15 +53,15 @@ const AboutSection = () => (
           </p>
           <h2
             className="font-display font-bold leading-tight mb-1"
-            style={{ color: "#1B3A52", fontSize: "clamp(1.8rem, 2.5vw, 2.4rem)" }}
+            style={{ color: "#3B1A1A", fontSize: "clamp(1.8rem, 2.5vw, 2.4rem)" }}
           >
-            Fernando Vieira
+            Ícaro Negri
           </h2>
           <p
             className="font-label text-[0.7rem] uppercase tracking-[2px] mb-8"
             style={{ color: "#9CA3AF" }}
           >
-            Especialista em Imóveis de Alto Padrão · CRECI 123456-F
+            Especialista em Imóveis de Alto Padrão · CRECI 221107
           </p>
 
           <div
@@ -95,7 +94,7 @@ const AboutSection = () => (
               </a>
             ))}
             <a
-              href="https://wa.me/5548999999999"
+              href="https://wa.me/5511922190212"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 h-11 rounded font-label text-[0.72rem] tracking-[0.9px] text-white transition-all duration-300 hover:opacity-90 ml-2"

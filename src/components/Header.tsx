@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import logoImg from "../assets/logo-viva-beiramar.png";
 
 const menuItems = [
@@ -12,12 +13,43 @@ const menuItems = [
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    if (href === "#") {
+      // "Início" — go home & scroll top
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+
+    const sectionId = href.replace("#", "");
+
+    if (location.pathname !== "/") {
+      // Navigate home first, then scroll to section
+      navigate("/");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        el?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    } else {
+      const el = document.getElementById(sectionId);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location.pathname, navigate]);
 
   return (
     <>
@@ -27,25 +59,29 @@ const Header = () => {
           className="w-full max-w-[1120px] flex items-center justify-between px-5 md:px-8 rounded-2xl transition-all duration-500"
           style={{
             height: "80px",
-            background: "rgba(12, 16, 24, 0.60)",
+            background: "rgba(245, 236, 215, 0.75)",
             backdropFilter: "blur(15px)",
             WebkitBackdropFilter: "blur(15px)",
-            border: "1px solid rgba(255,255,255,0.12)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.28)",
+            border: "1px solid rgba(255,255,255,0.5)",
+            boxShadow: "0 8px 32px rgba(120,90,40,0.08)",
           }}
         >
           {/* Brand */}
-          <a href="#" className="flex items-center gap-2.5 group flex-shrink-0">
+          <a
+            href="/"
+            onClick={(e) => handleNavClick(e, "#")}
+            className="flex items-center gap-2.5 group flex-shrink-0"
+          >
             <img
               src={logoImg}
               alt="Viva Beiramar"
-              className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col leading-none">
-              <span className="font-display font-bold text-[1.05rem] tracking-[1px] text-[var(--accent-gold)]">
+              <span className="font-display font-bold text-[1.5rem] tracking-[1px] text-[var(--accent-gold)]">
                 VIVA
               </span>
-              <span className="font-label text-[0.48rem] tracking-[3px] text-white/50 uppercase">
+              <span className="font-label text-[0.65rem] tracking-[3px] text-[#7A6B5D] uppercase">
                 Beiramar
               </span>
             </div>
@@ -57,7 +93,8 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="nav-link px-4 py-2 font-label text-[0.68rem] tracking-[1.2px] text-white/75 hover:text-white transition-colors duration-300"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="nav-link px-4 py-2 font-label text-[0.68rem] tracking-[1.2px] text-[#4A3C30]/75 hover:text-[#2C1810] transition-colors duration-300"
               >
                 {item.label}
               </a>
@@ -66,10 +103,10 @@ const Header = () => {
 
           {/* CTA button — soft gradient float */}
           <a
-            href="https://wa.me/5548999999999"
+            href="https://wa.me/5511922190212"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center justify-center h-9 px-6 rounded-full font-label text-[0.68rem] tracking-[0.8px] text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_20px_rgba(197,160,89,0.45)]"
+            className="shimmer-btn hidden md:inline-flex items-center justify-center h-9 px-6 rounded-full font-label text-[0.68rem] tracking-[0.8px] text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_20px_rgba(197,160,89,0.45)]"
             style={{
               background: "linear-gradient(135deg, #C5A059 0%, #A68547 100%)",
               boxShadow: "0 2px 12px rgba(197,160,89,0.3)",
@@ -121,14 +158,14 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => { handleNavClick(e, item.href); setMenuOpen(false); }}
                 className="text-2xl font-display font-medium text-white hover:text-[var(--accent-gold)] transition-colors tracking-wide"
               >
                 {item.label}
               </a>
             ))}
             <a
-              href="https://wa.me/5548999999999"
+              href="https://wa.me/5511922190212"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}

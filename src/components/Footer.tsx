@@ -1,10 +1,10 @@
-import { Instagram, Linkedin, MessageCircle, Mail, Phone } from "lucide-react";
+import { Instagram, MessageCircle, Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo-viva-beiramar.png";
 
 const GOLD = "#C5A059";
 const GOLD_DARK = "#A68547";
-const TEXT_MUTED = "rgba(255,252,245,0.45)";
-const TEXT_BODY = "rgba(255,252,245,0.65)";
+const TEXT_MUTED = "rgba(44,24,16,0.50)";
+const TEXT_BODY = "rgba(44,24,16,0.65)";
 
 const navLinks = [
   { label: "Imóveis", href: "#imoveis" },
@@ -16,15 +16,14 @@ const navLinks = [
 const regions = ["Lázaro — Ubatuba", "Praia Grande — Ubatuba", "Itamambuca — Ubatuba", "Saco da Ribeira — Ubatuba"];
 
 const socials = [
-  { icon: Instagram, href: "https://instagram.com/vivabeiramar", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: MessageCircle, href: "https://wa.me/5548996931776", label: "WhatsApp" },
+  { icon: Instagram, href: "https://www.instagram.com/viva.beiramar", label: "Instagram" },
+  { icon: MessageCircle, href: "https://wa.me/5511922190212", label: "WhatsApp" },
 ];
 
 const Footer = () => (
   <footer
     style={{
-      background: "linear-gradient(170deg, #0D1E2E 0%, #101F30 60%, #0A1820 100%)",
+      background: "linear-gradient(170deg, #E8D5B5 0%, #EDE0C4 60%, #DFC9A8 100%)",
       paddingTop: "72px",
       paddingBottom: "40px",
     }}
@@ -96,7 +95,7 @@ const Footer = () => (
                 href={href}
                 className="block font-body text-[0.875rem] transition-colors duration-200 hover:opacity-100"
                 style={{ color: TEXT_MUTED }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,252,245,0.90)")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(44,24,16,0.90)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = TEXT_MUTED)}
               >
                 {label}
@@ -132,28 +131,28 @@ const Footer = () => (
           </p>
           <div className="space-y-3">
             <a
-              href="https://wa.me/5548996931776"
+              href="https://wa.me/5511922190212"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 font-body text-[0.875rem] transition-colors group"
               style={{ color: TEXT_MUTED }}
             >
               <Phone size={14} style={{ color: GOLD, flexShrink: 0 }} />
-              (48) 99693-1776
+              (11) 92219-0212
             </a>
             <a
-              href="mailto:contato@vivabeiramar.com"
+              href="mailto:vivabeiramar.com@gmail.com"
               className="flex items-center gap-2.5 font-body text-[0.875rem] transition-colors"
               style={{ color: TEXT_MUTED }}
             >
               <Mail size={14} style={{ color: GOLD, flexShrink: 0 }} />
-              contato@vivabeiramar.com
+              vivabeiramar.com@gmail.com
             </a>
             <p
               className="font-label font-semibold text-[0.72rem] uppercase tracking-[1.5px] mt-4"
               style={{ color: GOLD }}
             >
-              CRECI 123456-F
+              CRECI 221107
             </p>
           </div>
         </div>
@@ -168,7 +167,7 @@ const Footer = () => (
         }}
       >
         <p>© 2026 Viva Beiramar. Todos os direitos reservados.</p>
-        <p style={{ color: GOLD_DARK }}>CRECI 123456-F</p>
+        <p style={{ color: GOLD_DARK }}>CRECI 221107</p>
       </div>
     </div>
   </footer>

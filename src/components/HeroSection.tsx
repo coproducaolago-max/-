@@ -71,8 +71,11 @@ const HeroSection = () => {
           </p>
           <div className="mt-8">
             <a
-              href="#interest-form"
-              className="btn-gold inline-flex items-center gap-2 px-8 h-12 rounded-md font-label text-[0.78rem] tracking-[0.8px]"
+              href="https://wa.me/5511922190212?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20personalizada!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold inline-flex items-center gap-2 px-8 h-12 rounded-full font-label text-[0.78rem] tracking-[0.8px]"
+              style={{ borderRadius: "9999px" }}
             >
               Agendar Visita Personalizada
               <ArrowRight className="w-4 h-4" />
@@ -160,7 +163,8 @@ const HeroSection = () => {
               </label>
               <button
                 onClick={handleSearch}
-                className="h-11 rounded-md btn-gold font-btn text-[0.72rem]"
+                className="h-11 px-6 rounded-full btn-gold font-btn text-[0.72rem]"
+                style={{ borderRadius: "9999px" }}
               >
                 Buscar
               </button>

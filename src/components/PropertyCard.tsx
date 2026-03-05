@@ -54,8 +54,8 @@ const PropertyCard = ({
   const cardBg = lightSection
     ? "bg-white shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-[#E5E7EB]"
     : variant === "glass"
-      ? "bg-[rgba(11,30,45,0.72)] backdrop-blur-sm"
-      : "bg-[#0D2035] border border-[rgba(201,168,76,0.08)]";
+      ? "bg-[rgba(255,255,255,0.35)] backdrop-blur-sm"
+      : "bg-white/50 border border-white/60";
 
   const textColor = lightSection ? "text-[#1B3A52]" : "text-[var(--text-primary)]";
   const mutedColor = lightSection ? "text-[#6B7280]" : "text-[var(--text-muted)]";

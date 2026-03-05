@@ -13,10 +13,10 @@ interface SectionProps {
 
 const sectionVariantClass: Record<SectionVariant, string> = {
   light: "bg-[var(--bg-secondary)] text-[var(--text-primary)]",
-  dark: "bg-[#1B3A52] text-white",
-  sand: "bg-[#F0F9FC] text-[#1B3A52]",
-  "navy-deep": "bg-[#0D2233] text-white",
-  "off-white": "bg-[#FAFAFA] text-[#1B3A52]",
+  dark: "bg-[#E8D5B5] text-[#2C1810]",
+  sand: "bg-[#F5ECD7] text-[#2C1810]",
+  "navy-deep": "bg-[#EDE0C4] text-[#2C1810]",
+  "off-white": "bg-[#FDFBF5] text-[#2C1810]",
 };
 
 const isDarkVariant = (variant: SectionVariant) =>
@@ -76,7 +76,7 @@ export const SectionTitle = ({
         <p
           className={cn(
             "font-sans text-[0.68rem] font-semibold uppercase tracking-[1.5px] mb-3",
-            onDarkBg ? "text-[#D4A840]" : "text-[#5BBFD4]",
+            onDarkBg ? "text-[#C5A059]" : "text-[#C5A059]",
           )}
         >
           {eyebrow}
@@ -87,7 +87,7 @@ export const SectionTitle = ({
           className={cn(
             "font-display font-bold leading-[1.2] tracking-[-0.3px]",
             "text-[clamp(32px,3.5vw,48px)]",
-            onDarkBg ? "text-white" : "text-[#1B3A52]",
+            onDarkBg ? "text-[#2C1810]" : "text-[#2C1810]",
           )}
         >
           {title}
@@ -100,7 +100,7 @@ export const SectionTitle = ({
           className={cn(
             "font-body text-[17px] leading-[1.8] mt-3 max-w-[600px]",
             centered && "mx-auto",
-            onDarkBg ? "text-gray-300" : "text-gray-500",
+            onDarkBg ? "text-[#7A6B5D]" : "text-[#7A6B5D]",
           )}
         >
           {subtitle}

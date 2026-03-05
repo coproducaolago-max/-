@@ -56,7 +56,7 @@ const TestimonialsSection = () => (
       >
         <h2
           className="font-display font-bold"
-          style={{ color: "#1B3A52", fontSize: "clamp(28px, 3.5vw, 44px)" }}
+          style={{ color: "#2C1810", fontSize: "clamp(28px, 3.5vw, 44px)" }}
         >
           Confiança Comprovada
         </h2>
@@ -105,7 +105,7 @@ const TestimonialsSection = () => (
               <div>
                 <p
                   className="font-display font-semibold"
-                  style={{ color: "#1B3A52", fontSize: "0.95rem" }}
+                  style={{ color: "#2C1810", fontSize: "0.95rem" }}
                 >
                   {t.author}
                 </p>
